@@ -22,11 +22,4 @@ pipeline {
 		
 	}
     }
-	node {
-    	withKafkaLog(kafkaServers: 'localhost:9092', kafkaTopic: 'test', metadata:'Other info to send..') {
-        	echo 'Hello World'
-	        echo 'Oh Hello'
-        	echo 'Finally'
-    }
-}
 }
