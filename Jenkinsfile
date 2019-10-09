@@ -12,8 +12,9 @@ pipeline {
             }
         }
     	stage("Send Build Result") {
-    		
-    		sh "echo test change"
+    		steps {
+                sh "echo test change"
+            }
     	}
     }
 }
