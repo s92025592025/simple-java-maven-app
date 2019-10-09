@@ -16,26 +16,27 @@ pipeline {
     	stage("Send Build Result") {
     		steps {
                 sh "echo test change"
-                def message
             }
     	}
     }
 
     post {
         failure {
-            msg = [
-                [
-                    text: """
-                    Build #${BUILD_NUMBER} Failed in ${Util.getTimeSpanString(System.currentTimeMillis() - currentBuild.startTimeInMillis)} ms\n
-                    Build Log:\n
-                    ```\n
-                    ${currentBuild.rawBuild.getLog(10)}
-                    ```\n
-                    See <${BUILD_URL}|here> for more details""",
-                    color: 'danger'
+            script {
+                def sg = [
+                    [
+                        text: """
+                        Build #${BUILD_NUMBER} Failed in ${Util.getTimeSpanString(System.currentTimeMillis() - currentBuild.startTimeInMillis)} ms\n
+                        Build Log:\n
+                        ```\n
+                        ${currentBuild.rawBuild.getLog(10)}
+                        ```\n
+                        See <${BUILD_URL}|here> for more details""",
+                        color: 'danger'
+                    ]
                 ]
-            ]
-            slackSend(channel: '#kafka-webhook-test', attachments: msg)
+                slackSend(channel: '#kafka-webhook-test', attachments: msg)
+            }
         }
     }
 }
