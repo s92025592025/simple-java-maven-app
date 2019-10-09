@@ -11,15 +11,9 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
-	stage("Send Build Result") {
-		steps{
-			withKafkaLog(kafkaServers: '127.0.0.1:9092', kafkaTopic: 'test', metadata:'Other info to send..') {
-			echo 'Hello World'
-			echo 'Oh Hello'
-			echo 'Finally'
-			}
-		}
-		
-	}
+    	stage("Send Build Result") {
+    		
+    		sh "echo test change"
+    	}
     }
 }
