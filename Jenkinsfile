@@ -26,7 +26,7 @@ pipeline {
                 def sg = [
                     [
                         text: """
-                        Build #${BUILD_NUMBER} Failed in ${Util.getTimeSpanString(System.currentTimeMillis() - currentBuild.startTimeInMillis)} ms\n
+                        Build #${BUILD_NUMBER} Failed in ${currentBuild.durationString} ms\n
                         Build Log:\n
                         ```\n
                         ${currentBuild.rawBuild.getLog(10)}
