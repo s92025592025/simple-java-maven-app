@@ -23,7 +23,7 @@ pipeline {
 
     post {
         failure {
-            def msg = [
+            msg = [
                 [
                     text: """
                     Build #${BUILD_NUMBER} Failed in ${Util.getTimeSpanString(System.currentTimeMillis() - currentBuild.startTimeInMillis)} ms\n
