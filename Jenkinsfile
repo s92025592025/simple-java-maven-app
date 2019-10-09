@@ -22,13 +22,7 @@ pipeline {
 
     post {
         failure {
-            slackSend color: 'danger', message: """
-                        Build #${BUILD_NUMBER} Failed in ${currentBuild.durationString} ms\n
-                        Build Log:\n
-                        ```\n
-                        ${currentBuild.rawBuild.getLog(10)}
-                        ```\n
-                        See <${BUILD_URL}|here> for more details"""
+            slackSend color: 'danger', message: """Build #${BUILD_NUMBER} Failed in ${currentBuild.durationString}\nBuild Log:\n```\n${currentBuild.rawBuild.getLog(10)}```\nSee <${BUILD_URL}|here> for more details"""
         }
     }
 }
