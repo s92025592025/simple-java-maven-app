@@ -22,28 +22,13 @@ pipeline {
 
     post {
         failure {
-            String buildTime = currentBuild.durationString
-            String buildLog = currentBuild.rawBuild.getLog(10)
-            enviroment {
-                BUILD_TIME = buildTime
-                BUILD_LOG = buildLog
-            }
-
-            script {
-                def sg = [
-                    [
-                        text: """
-                        Build #${BUILD_NUMBER} Failed in ${BUILD_TIME} ms\n
+            slackSend color: 'danger', message: """
+                        Build #${BUILD_NUMBER} Failed in ${currentBuild.durationString} ms\n
                         Build Log:\n
                         ```\n
-                        ${BUILD_LOG}
+                        ${currentBuild.rawBuild.getLog(10)}
                         ```\n
-                        See <${BUILD_URL}|here> for more details""",
-                        color: 'danger'
-                    ]
-                ]
-                slackSend(channel: '#kafka-webhook-test', attachments: msg)
-            }
+                        See <${BUILD_URL}|here> for more details"""
         }
     }
 }
