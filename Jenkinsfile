@@ -31,7 +31,7 @@ pipeline {
                     ```\n
                     ${currentBuild.rawBuild.getLog(10)}
                     ```\n
-                    See <${BUILD_URL}|here> for more details"""
+                    See <${BUILD_URL}|here> for more details""",
                     color: 'danger'
                 ]
             ]
