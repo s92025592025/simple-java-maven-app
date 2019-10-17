@@ -14,15 +14,14 @@ pipeline {
             }
         }
     	stage("Send Build Result") {
-    		steps {
-                sh "echo test change"
+            steps{
+                withKafkaLog(kafkaServers: '127.0.0.1:9092', kafkaTopic: 'test', metadata:'Other info to send..') {
+                echo 'Hello World'
+                echo 'Oh Hello'
+                echo 'Finally'
+                }
             }
-    	}
-    }
-
-    post {
-        failure {
-            slackSend color: 'danger', message: """Build #${BUILD_NUMBER} Failed in ${currentBuild.durationString}\nBuild Log:\n```\n${currentBuild.rawBuild.getLog(10)}```\nSee <${BUILD_URL}|here> for more details"""
+        
         }
     }
 }
