@@ -16,9 +16,9 @@ pipeline {
     	stage("Send Build Result") {
             steps{
                 withKafkaLog(kafkaServers: '172.17.0.4:9093', kafkaTopic: 'test', metadata:'Other info to send..') {
-                echo 'Hello World'
-                echo 'Oh Hello'
-                echo 'Finally'
+                echo 'this'
+                echo 'is a'
+                echo 'Demo'
                 }
             }
         
