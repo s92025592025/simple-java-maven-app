@@ -9,7 +9,6 @@ import groovy.grape.Grape
 /*@Grapes(
     @Grab(group='com.oracle.oci.sdk', module='oci-java-sdk-common', version='1.9.1')
 )*/
-@Library('oci-java-sdk')
 
 //@Grab('com.oracle.oci.sdk:oci-java-sdk-bom:1.9.1')
 
