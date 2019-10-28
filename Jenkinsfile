@@ -10,7 +10,7 @@ import groovy.grape.Grape
     @Grab(group='com.oracle.oci.sdk', module='oci-java-sdk-common', version='1.9.1')
 )*/
 @Library('oci-java-sdk')
-import com.oracle.bmc.auth.ConfigFileAuthenticationDetailsProvider
+
 //@Grab('com.oracle.oci.sdk:oci-java-sdk-bom:1.9.1')
 
 pipeline {
@@ -36,7 +36,10 @@ pipeline {
                 }
                 */
                 echo "apples"
-                ConfigFileAuthenticationDetailsProvider provider =  new ConfigFileAuthenticationDetailsProvider('/path/to/.oci/config', 'DEFAULT')
+                script {
+                    @Grab(group='com.oracle.oci.sdk', module='oci-java-sdk-bom', version='1.9.1',scope='import')
+                    ConfigFileAuthenticationDetailsProvider provider =  new ConfigFileAuthenticationDetailsProvider('/path/to/.oci/config', 'DEFAULT')
+                }
             }
         
         }
