@@ -12,7 +12,7 @@ import groovy.grape.Grape
 //import com.oracle.bmc.auth.ConfigFileAuthenticationDetailsProvider
 //@Grab('com.oracle.oci.sdk:oci-java-sdk-bom:1.9.1')
 
-def sendData
+//def sendData
 
 pipeline {
     agent {
@@ -37,8 +37,12 @@ pipeline {
                 }
                 */
                 echo "apples"
-                sendData = load 'postData.groovy'
-                sendData.sendMsg()
+                node {
+                    label 'apples'
+                    def sendData = load 'postData.groovy'
+                    sendData.sendMsg()
+                }
+                
             }
         
         }
