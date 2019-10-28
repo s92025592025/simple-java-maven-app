@@ -1,4 +1,5 @@
 import hudson.Util;
+import com.oracle.bmc.auth.ConfigFileAuthenticationDetailsProvider;
 
 pipeline {
     agent {
@@ -15,11 +16,14 @@ pipeline {
         }
     	stage("Send Build Result") {
             steps{
+                /*
                 withKafkaLog(kafkaServers: '172.17.0.4:9093', kafkaTopic: 'test', metadata:'Other info to send..') {
                 echo 'this'
                 echo 'is a'
                 echo 'Demo'
                 }
+                */
+                echo "apples"
             }
         
         }
