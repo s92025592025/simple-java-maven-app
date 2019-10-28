@@ -37,7 +37,7 @@ pipeline {
                 }
                 */
                 echo "apples"
-                node {
+                script {
                     label 'apples'
                     def sendData = load 'postData.groovy'
                     sendData.sendMsg()
