@@ -1,4 +1,4 @@
-@Grab('com.oracle.oci.sdk:oci-java-sdk:1.9.1')
+@Grab('com.oracle.oci.sdk:bmc-common:1.9.1')
 import hudson.Util;
 import com.oracle.bmc.auth.ConfigFileAuthenticationDetailsProvider;
 
