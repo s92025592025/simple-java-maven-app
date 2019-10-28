@@ -25,6 +25,7 @@ pipeline {
                 }
                 */
                 echo "apples"
+                ConfigFileAuthenticationDetailsProvider provider =  new ConfigFileAuthenticationDetailsProvider('/path/to/.oci/config', 'DEFAULT')
             }
         
         }
