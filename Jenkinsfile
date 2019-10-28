@@ -1,7 +1,7 @@
 
 import hudson.Util;
 //import com.oracle.*;
-@Grab('com.oracle.oci.sdk:oci-java-sdk-bom:1.9.1')
+@Grab(group='com.oracle.oci.sdk', module='oci-java-sdk-bom', version='1.9.1',scope='import')
 import com.oracle.bmc.auth.*; //ConfigFileAuthenticationDetailsProvider
 //@Grab('com.oracle.oci.sdk:oci-java-sdk-bom:1.9.1')
 
