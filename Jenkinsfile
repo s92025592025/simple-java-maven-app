@@ -2,13 +2,14 @@
 import hudson.Util
 
 import groovy.grape.Grape
-Grape.grab([group='com.oracle.oci.sdk', module='oci-java-sdk-common', version='1.9.1'])
+//Grape.grab([group='com.oracle.oci.sdk', module='oci-java-sdk-common', version='1.9.1'])
 //import com.oracle.*;
 //@Grab(group='com.oracle.oci.sdk', module='oci-java-sdk-bom', version='1.9.1',scope='import')
 //@Grab(group='com.oracle.oci.sdk', module='oci-java-sdk-common', version='1.9.1')
 /*@Grapes(
     @Grab(group='com.oracle.oci.sdk', module='oci-java-sdk-common', version='1.9.1')
 )*/
+@Library('oci-java-sdk')
 import com.oracle.bmc.auth.ConfigFileAuthenticationDetailsProvider
 //@Grab('com.oracle.oci.sdk:oci-java-sdk-bom:1.9.1')
 
