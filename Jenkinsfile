@@ -12,6 +12,8 @@ import groovy.grape.Grape
 //import com.oracle.bmc.auth.ConfigFileAuthenticationDetailsProvider
 //@Grab('com.oracle.oci.sdk:oci-java-sdk-bom:1.9.1')
 
+def sendData
+
 pipeline {
     agent {
         docker {
@@ -35,7 +37,7 @@ pipeline {
                 }
                 */
                 echo "apples"
-                def sendData = load 'postData.groovy'
+                sendData = load 'postData.groovy'
                 sendData.sendMsg()
             }
         
