@@ -1,9 +1,9 @@
 
 import hudson.Util;
 //import com.oracle.*;
-//@Grab('com.oracle.oci.sdk:oci-java-sdk-bom:1.9.1')
-import com.oracle.bmc.auth.*; //ConfigFileAuthenticationDetailsProvider
 @Grab('com.oracle.oci.sdk:oci-java-sdk-bom:1.9.1')
+import com.oracle.bmc.auth.*; //ConfigFileAuthenticationDetailsProvider
+//@Grab('com.oracle.oci.sdk:oci-java-sdk-bom:1.9.1')
 
 pipeline {
     agent {
