@@ -20,14 +20,19 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'python3 /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-event --msg "build #${BUILD_NUMBER} started at $(date)"'
+                node {
+                    sh 'python3 /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-event --msg "build #${BUILD_NUMBER} started at $(date)"'
+                }
+
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
     	stage("Send Build Result") {
             steps{
-                sh 'python3 /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-event --msg "build #${BUILD_NUMBER} Ended at $(date)"'
-                sh 'python3 /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-log --msg (cat .jenkins/jobs/oci-stream-demo/branches/master/builds/${BUILD_NUMBER}/log)'              
+                node {
+                    sh 'python3 /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-event --msg "build #${BUILD_NUMBER} Ended at $(date)"'
+                    sh 'python3 /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-log --msg (cat .jenkins/jobs/oci-stream-demo/branches/master/builds/${BUILD_NUMBER}/log)'              
+                }
             }
         
         }
