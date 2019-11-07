@@ -26,8 +26,8 @@ pipeline {
         }
     	stage("Send Build Result") {
             steps{
-                sh 'python3 /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-event --msg "build #${BUILD_NUMBER} Ended at $(date)"'
-                sh 'python3 /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-log --msg (cat .jenkins/jobs/oci-stream-demo/branches/master/builds/${BUILD_NUMBER}/log)'              
+                sh '/Users/jiuwang/Documents/oci-stream-jenkins/env/bin/python /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-event --msg "build #${BUILD_NUMBER} Ended at $(date)"'
+                sh '/Users/jiuwang/Documents/oci-stream-jenkins/env/bin/python /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-log --msg (cat .jenkins/jobs/oci-stream-demo/branches/master/builds/${BUILD_NUMBER}/log)'              
             }
         
         }
