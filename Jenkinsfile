@@ -15,7 +15,7 @@ import groovy.grape.Grape
 //def sendData
 
 pipeline {
-    agent any
+    agent { node { label 'master' } }
 
     stages {
         stage('Build') { 
