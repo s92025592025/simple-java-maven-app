@@ -20,7 +20,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'python3 /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-event --msg "build #${BUILD_NUMBER} started at $(date)"'
+                sh 'python /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-event --msg "build #${BUILD_NUMBER} started at $(date)"'
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
