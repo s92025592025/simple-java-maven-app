@@ -36,7 +36,7 @@ pipeline {
     post {
         always {
             sh '/usr/local/bin/wget  -O log.log ${BUILD_URL}/consoleText'
-            sh '/Users/jiuwang/Documents/oci-stream-jenkins/env/bin/python /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-log --msg $(cat log.log)'
+            sh '/Users/jiuwang/Documents/oci-stream-jenkins/env/bin/python /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-log --msg "$(cat log.log)"'
         }
 
         success {
