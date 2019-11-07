@@ -35,7 +35,7 @@ pipeline {
 
     post {
         always {
-            sh '/Users/jiuwang/Documents/oci-stream-jenkins/env/bin/python /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-log --msg $(cat .jenkins/jobs/oci-stream-demo/branches/master/builds/${BUILD_NUMBER}/log)'
+            sh '/Users/jiuwang/Documents/oci-stream-jenkins/env/bin/python /Users/jiuwang/Documents/oci-stream-jenkins/jenkins_log_streaming.py --key build-log --msg $(cat /Users/jiuwang/.jenkins/jobs/oci-stream-demo/branches/master/builds/${BUILD_NUMBER}/log)'
         }
 
         success {
